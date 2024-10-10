@@ -18,7 +18,7 @@ const CreateUser = () => {
     skill: [],
     certification: [],
   });
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [isActive, setIsActive] = useState(true);
 
   // useState upload hình ảnh

@@ -14,27 +14,20 @@ const ManagerUser = () => {
   const {handleNotification } = useContext(NotificationContext)
   const dispatch = useDispatch()
   const { listUsers } = useSelector(state => state.nguoiDungSlice)
+  console.log(listUsers)
   useEffect(() => {
     dispatch(getValueUserApi())
   }, [])
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: 'Tai Khoan',
+      dataIndex: 'taiKhoan',
+      key: 'taiKhoan',
     },
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: 'Avatar',
-      dataIndex: 'avatar',
-      key: 'avatar',
-      render: (text) => {
-        return <img className='h-14' src={text} />
-      }
+      title: 'Ho ten',
+      dataIndex: 'hoTen',
+      key: 'hoTen',
     },
     {
       title: 'Email',
@@ -42,19 +35,20 @@ const ManagerUser = () => {
       key: 'email',
     },
     {
-      title: "Gender",
-      dataIndex: "gender",
+      title: 'sdt ',
+      dataIndex: 'soDt',
+      key: 'soDt',
+    },
+    {
+      title: "Ma loai nguoi dung",
+      dataIndex: "maLoaiNguoiDung",
       render: (text) => {
         console.log(text)
-        return <Tag color={text ? "blue" : "cyan"} >{text ? "Nam" : "Nữ"}</Tag>
+        return <Tag color={text == "HV" ? "blue" : "cyan"} >{text  == "HV" ? "Hoc Vien" : "Giang vien"}</Tag>
       }
     },
     // USER ADMIN
-    {
-      title: "ROLE",
-      dataIndex: "role",
-      render: (text) => <Tag color={text == "ADMIN" ? "geekblue-inverse" : "lime-inverse"} >{text}</Tag>
-    },
+    
     {
       title: 'Action',
       key: 'action',

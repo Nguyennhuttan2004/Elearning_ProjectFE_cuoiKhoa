@@ -61,7 +61,8 @@ const Header = () => {
         <div className="header_content flex items-center justify-between">
           <div className="header_logo flex items-center space-x-4">
             <Link to={pathDefault.homePage}>
-              <IconLogoHeader />
+              {/* <IconLogoHeader /> */}
+              ELearning
             </Link>
             <FormSearchProduct />
           </div>

@@ -21,11 +21,11 @@ const AdminTemplate = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  useEffect(() => {
-    let dataLocal = getLocalStorage("user")
-    console.log(dataLocal)
-    dataLocal.user.role !== "ADMIN" ? window.location.href = "https://google.com" : null
-  }, [])
+  // useEffect(() => {
+  //   let dataLocal = getLocalStorage("user")
+  //   console.log(dataLocal)
+  //   dataLocal.user.role !== "ADMIN" ? window.location.href = "https://google.com" : null
+  // }, [])
 
  
 

@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { nguoiDungService } from "../services/nguoiDung.service";
 
 export const getValueUserApi = createAsyncThunk(
-  "nguoiDung/getValueUserApi",
-  async (_, ThunkAPI) => {
-    const result = await nguoiDungService.getAllUsers();
+  "nguoiDung/getAllUserApi",
+  async () => {
+    const result = await nguoiDungService.fetchUsers();
     console.log(result);
-    return result.data.content;
+    return result;
   }
 );
 

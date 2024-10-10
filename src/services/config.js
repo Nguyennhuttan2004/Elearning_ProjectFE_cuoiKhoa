@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const http = axios.create({
-  baseURL: "https://fiverrnew.cybersoft.edu.vn/api",
+  baseURL: "https://elearning0706.cybersoft.edu.vn/api",
   timeout: 30000,
   headers: {
     tokenCyberSoft:
