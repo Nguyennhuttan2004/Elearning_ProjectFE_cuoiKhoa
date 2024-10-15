@@ -1,0 +1,30 @@
+.banner {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 50px 0;
+    background-position: bottom;
+  }
+  .banner .banner_content {
+    display: flex;
+    align-items: center;
+  }
+  .banner .banner_content .banner_content_text {
+    width: 50%;
+  }
+  .banner .banner_content .banner_content_text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #427F93;
+  }
+  .banner .banner_content .banner_content_text p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1E345E;
+    margin: 10px 0;
+
+  }
+  .banner .banner_content .banner_content_image {
+    width: 50%;
+  }
+  .banner .banner_content .banner_content_image img {
+    width: 100%;
+  }

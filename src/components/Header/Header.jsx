@@ -1,99 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import IconLogoHeader from "../Icon/IconLogoHeader";
-import { pathDefault } from "../../common/path";
-import { DownOutlined, SmileOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
+import { DownOutlined, UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { Dropdown, Space, Button, Avatar } from "antd";
 import "./header.scss";
 import LinkCustom from "../LinkCustom/LinkCustom";
 import FormSearchProduct from "../FormSearchProduct/FormSearchProduct";
-const items = [
-  {
-    key: "1",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.aliyun.com"
-      >
-        2nd menu item (disabled)
-      </a>
-    ),
-    icon: <SmileOutlined />,
-    disabled: true,
-  },
-  {
-    key: "3",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.luohanacademy.com"
-      >
-        3rd menu item (disabled)
-      </a>
-    ),
-    disabled: true,
-  },
-  {
-    key: "4",
-    danger: true,
-    label: "a danger item",
-  },
-];
 
 const Header = () => {
+  const categories = [
+    { key: "1", label: "Phát triển web" },
+    { key: "2", label: "Thiết kế đồ họa" },
+    { key: "3", label: "Marketing số" },
+    { key: "4", label: "Kinh doanh" },
+  ];
+
   return (
-    <header className="py-5">
-      <div className="container">
-        <div className="header_content flex items-center justify-between">
-          <div className="header_logo flex items-center space-x-4">
-            <Link to={pathDefault.homePage}>
-              {/* <IconLogoHeader /> */}
+    <header className="bg-white shadow-md py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <Link to="/" className="text-2xl font-bold text-[#4682b4]">
               ELearning
             </Link>
-            <FormSearchProduct />
-          </div>
-          <nav className="header_navigation space-x-5">
             <Dropdown
-              menu={{
-                items,
-              }}
-              arrow={true}
+              menu={{ items: categories }}
               trigger={["click"]}
-              className="cursor-pointer py-3 px-4 hover:bg-gray-100 duration-300 rounded-md"
             >
-              <a onClick={(e) => e.preventDefault()}>
+              <Button>
                 <Space>
-                  Hover me
+                  Danh mục
                   <DownOutlined />
                 </Space>
-              </a>
+              </Button>
             </Dropdown>
-            <button>English</button>
-            <a href="#">Become a Seller</a>
+            <FormSearchProduct />
+          </div>
+          <nav className="flex items-center space-x-6">
+            <Link to="/cart" className="text-gray-600 hover:text-blue-600">
+              <ShoppingCartOutlined style={{ fontSize: '24px' }} />
+            </Link>
             <LinkCustom
-              content={"Đăng nhập"}
-              to={pathDefault.login}
-              className={"border border-green-600 text-green-600"}
+              content="Đăng nhập"
+              to="/login"
+              className="text-[#4682b4] hover:text-[#36648B]"
             />
             <LinkCustom
-              content={"Đăng ký"}
-              to={pathDefault.register}
-              className={"bg-green-600 text-white"}
+              content="Đăng ký"
+              to="/register"
+              className="bg-[#4682b4] text-white px-4 py-2 rounded-md hover:bg-[#36648B]"
             />
+            <Avatar icon={<UserOutlined />} />
           </nav>
         </div>
       </div>

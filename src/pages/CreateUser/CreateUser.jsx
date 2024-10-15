@@ -8,13 +8,12 @@ import { useSelector } from "react-redux";
 const CreateUser = () => {
   const [listSkill, setListSkill] = useState([]);
   const [userValue, setUserValue] = useState({
-    name: "",
+    taiKhoan: "",
+    matKhau: "",
+    hoTen: "",
+    soDT: "",
+    maNhom: "",
     email: "",
-    password: "",
-    phone: "",
-    birthday: "",
-    gender: true,
-    role: "",
     skill: [],
     certification: [],
   });

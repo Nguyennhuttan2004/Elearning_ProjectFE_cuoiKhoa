@@ -37,12 +37,12 @@ const FormRegister = () => {
     setFieldValue,
   } = useFormik({
     initialValues: {
-      name: "",
+      taiKhoan: "",
+      matKhau: "",
+      hoTen: "",
+      soDT: "",
+      maNhom: "",
       email: "",
-      password: "",
-      phone: "",
-      birthday: "",
-      gender: "",
     },
     onSubmit: (values) => {
       console.log(values);
@@ -82,13 +82,20 @@ const FormRegister = () => {
         .string()
         .required(notiValidation.empty)
         .matches(/^(0|\+84)[3|5|7|8|9][0-9]{8}$/, "Vui lòng nhập đúng sdt"),
-      birthday: yup.string().required(notiValidation.empty),
-      gender: yup.string().required(notiValidation.empty),
+      taiKhoan: yup
+      .string()
+      .required(notiValidation.empty)
+      .matches(/^[a-zA-Z0-9_]{5,15}$/, "Vui lòng nhập ký tự chữ cái (a-z), chữ số (0-9), dấu gạch dưới (_), và độ dài từ 5 đến 15 ký tự"),
+      maNhom: yup
+      .string()
+      .required(notiValidation.empty)
+      .matches(/^GP([1-9]|10)$/, "Vui lòng nhập đúng mã nhóm"),
+      
     }),
   });
   return (
     <div className="flex items-center justify-center flex-col h-full">
-      <h1>Form đăng ký</h1>
+      <h1 className="font-bold text-4xl mb-10">Form đăng ký</h1>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-wrap">
           {/* name  */}
@@ -140,39 +147,31 @@ const FormRegister = () => {
             touched={touched.phone}
             error={errors.phone}
           />
-          <div className="w-1/3 p-3">
-            <label className="block mb-2 text-sm font-medium text-gray-900 ">
-              Ngày sinh
-            </label>
-            <DatePicker
-              className="w-full"
-              format="DD-MM-YYYY"
-              onChange={(dayjs, dateString) => {
-                setFieldValue("birthday", dateString);
-              }}
-            />
-            {errors.birthday && touched.birthday ? (
-              <p className="text-red-500">{errors.birthday}</p>
-            ) : null}
-          </div>
-          <div className="w-1/3 p-3">
-            <label className="block mb-2 text-sm font-medium text-gray-900 ">
-              Giới tính
-            </label>
-            <select
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              name="gender"
-              value={values.gender}
-              onChange={handleChange}
-            >
-              <option value="">Vui lòng chọn giới tính</option>
-              <option value="Nam">Nam</option>
-              <option value="Nữ">Nữ</option>
-            </select>
-            {errors.gender && touched.gender ? (
-              <p className="text-red-500">{errors.gender}</p>
-            ) : null}
-          </div>
+
+          <InputCustom
+            onChange={handleChange}
+            value={values.taiKhoan}
+            contentLabel="Tai khoan"
+            name={"taiKhoan"}
+            placeHolder="Vui lòng nhập Tai Khoan"
+            classWrapper="w-1/3 p-3"
+            onBlur={handleBlur}
+            touched={touched.taiKhoan}
+            error={errors.taiKhoan}
+          />
+          <InputCustom
+            onChange={handleChange}
+            value={values.maNhom}
+            contentLabel="Ma Nhom"
+            name={"maNhom"}
+            placeHolder="Vui lòng nhập ma Nhom"
+            classWrapper="w-1/3 p-3"
+            onBlur={handleBlur}
+            touched={touched.maNhom}
+            error={errors.maNhom}
+          />
+          
+         
           <div className="w-full p-3">
             <button
               type="submit"

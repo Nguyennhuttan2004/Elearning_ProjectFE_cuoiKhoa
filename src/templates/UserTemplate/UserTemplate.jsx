@@ -1,15 +1,27 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import Slider from "../../components/Slider/Slider";
+import Categories from "../../components/Categories/Categories";
+import ProductList from "../../components/Product/ProductList";
+import Footer from "../../components/Footer/Footer.jsx";
+import NavigationBar from "../../components/NavigaionBar/NavigationBar";
 
 const UserTemplate = () => {
-  // header , content , footer
   return (
     <>
       <Header />
       <main>
         <Outlet />
+        {/* <Banner /> */}
+        <Slider />
+        <NavigationBar />
+        <div className="mt-24 px-4 md:px-8 lg:px-16 xl:32 2xl:px-64">
+        <ProductList />
+      </div>
+      <div className="mt-24 ">
+        <Categories />
+      </div>
       </main>
       <Footer />
     </>

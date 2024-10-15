@@ -1,7 +1,7 @@
 export const pathDefault = {
   homePage: "/",
-  register: "/dang-ky",
-  login: "/dang-nhap",
+  register: "/register",
+  login: "/login",
   listJob: "/list-job",
   admin: "/admin",
 };

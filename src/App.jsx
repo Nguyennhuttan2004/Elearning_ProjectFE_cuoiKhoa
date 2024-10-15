@@ -2,6 +2,7 @@ import { toast, ToastContainer } from "react-toastify";
 import useRoutesCustom from "./hooks/useRoutesCustom";
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import Banner from "./components/Banner/Banner";
 
 export const NotificationContext = React.createContext();
 
