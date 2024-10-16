@@ -69,7 +69,7 @@ const FormSearchProduct = () => {
           open={checkDropdown}
         >
           <div className='pl-4 rounded-md border border-gray-400 flex items-center justify-between min-w-[400px]'>
-            <input type="text" placeholder='Vui lòng nhập vào công việc cần kiếm' className='flex-1 focus:border-none focus:outline-none' onChange={handleChange} value={valueSearch} />
+            <input type="text" placeholder='Vui lòng nhập vào khóa học bạn cần tìm ' className='flex-1 focus:border-none focus:outline-none' onChange={handleChange} value={valueSearch} />
             <button type='submit' className="p-2"><IconSearch size={30} color='rgb(156 163 175)' /></button>
           </div>
         </Dropdown>

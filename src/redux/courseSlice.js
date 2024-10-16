@@ -12,12 +12,15 @@ export const getAllCourseApi = createAsyncThunk(
 
 const initialState = {
   listCourses: [],
+  listCategories: []
 };
 
 const courseSlice = createSlice({
   name: "courses",
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder.addCase(getAllCourseApi.fulfilled, (state, action) => {
       console.log(action);

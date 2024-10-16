@@ -1,0 +1,62 @@
+/* src/pages/CourseDetail/CourseDetail.css */
+.course-detail-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.course-main-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.course-image {
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.course-title {
+  margin-bottom: 1rem !important;
+}
+
+.course-meta {
+  margin-bottom: 1rem;
+}
+
+.course-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.course-info-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.course-info-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.course-info-list li {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+}
+
+.enroll-button {
+  margin-top: 1rem;
+  height: 48px;
+  font-size: 18px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  color: #1890ff;
+}

@@ -34,8 +34,8 @@ const Categories = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">Danh mục khóa học</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <h1 className="text-3xl font-bold mb-8 text-center text-[#4682b4] ">Danh mục khóa học</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {listDanhMuc.map(({ maDanhMuc, tenDanhMuc }) => (
           <Link key={maDanhMuc} to={`/courses?category=${maDanhMuc}`}>
             <Card
@@ -50,13 +50,7 @@ const Categories = () => {
                 <p className="text-gray-600">Mã danh mục: {maDanhMuc}</p>
               </div>
               <div className="bg-gray-100 p-4 flex justify-between items-center">
-                <Tooltip title="Số khóa học">
-                  <span className="flex items-center text-gray-600">
-                    <TeamOutlined className="mr-2" /> 
-                    {/* Thay số này bằng số khóa học thực tế nếu có */}
-                    10+ khóa học
-                  </span>
-                </Tooltip>
+                
                 <span className="text-blue-600 font-semibold">Xem chi tiết</span>
               </div>
             </Card>

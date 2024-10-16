@@ -41,7 +41,7 @@ const FormRegister = () => {
       matKhau: "",
       hoTen: "",
       soDT: "",
-      maNhom: "",
+      maNhom: "GP01",
       email: "",
     },
     onSubmit: (values) => {
@@ -54,7 +54,7 @@ const FormRegister = () => {
           // B1. Thực hiện thông báo cho người dùng
           handleNotification("Chúc mừng tạo tài khoản thành công, bạn sẽ được chuyển hướng về đăng nhập", "success")
           setTimeout(() => {
-            navigate("/dang-nhap")
+            navigate("/login")
           }, 2000)
         })
         .catch((err) => {
@@ -63,7 +63,7 @@ const FormRegister = () => {
         });
     },
     validationSchema: yup.object({
-      name: yup
+      hoTen: yup
         .string()
         .required(notiValidation.empty)
         .matches(/^[A-Za-zÀ-ỹà-ỹ\s]+$/, "Vui lòng nhập tên không chứa số"),
@@ -71,14 +71,14 @@ const FormRegister = () => {
         .string()
         .required(notiValidation.empty)
         .email(notiValidation.email),
-      password: yup
+      matKhau: yup
         .string()
         .required(notiValidation.empty)
         .matches(
           /^(?=.*[A-Z])(?=.*\d).+$/,
           "Vui lòng nhập ít nhất 1 chữ cái viết hoa và số"
         ),
-      phone: yup
+      soDT: yup
         .string()
         .required(notiValidation.empty)
         .matches(/^(0|\+84)[3|5|7|8|9][0-9]{8}$/, "Vui lòng nhập đúng sdt"),
@@ -86,10 +86,7 @@ const FormRegister = () => {
       .string()
       .required(notiValidation.empty)
       .matches(/^[a-zA-Z0-9_]{5,15}$/, "Vui lòng nhập ký tự chữ cái (a-z), chữ số (0-9), dấu gạch dưới (_), và độ dài từ 5 đến 15 ký tự"),
-      maNhom: yup
-      .string()
-      .required(notiValidation.empty)
-      .matches(/^GP([1-9]|10)$/, "Vui lòng nhập đúng mã nhóm"),
+     
       
     }),
   });
@@ -101,21 +98,21 @@ const FormRegister = () => {
           {/* name  */}
           <InputCustom
             onChange={handleChange}
-            value={values.name}
+            value={values.hoTen}
             contentLabel={"Họ tên"}
-            name="name"
+            name={"hoTen"}
             placeHolder="Vui lòng nhập tên"
             classWrapper="w-1/2 p-3"
             onBlur={handleBlur}
-            touched={touched.name}
-            error={errors.name}
+            touched={touched.hoTen}
+            error={errors.hoTen}
           />
           {/* email  */}
           <InputCustom
             onChange={handleChange}
             value={values.email}
             contentLabel={"Email"}
-            name="email"
+            name={"email"}
             placeHolder="Vui lòng nhập email"
             classWrapper="w-1/2 p-3"
             onBlur={handleBlur}
@@ -125,27 +122,27 @@ const FormRegister = () => {
           {/* password  */}
           <InputCustom
             onChange={handleChange}
-            value={values.password}
+            value={values.matKhau}
             contentLabel={"Mật khẩu"}
-            name="password"
+            name={"matKhau"}
             placeHolder="Vui lòng nhập mật khẩu"
             classWrapper="w-full p-3"
             type="password"
             onBlur={handleBlur}
-            touched={touched.password}
-            error={errors.password}
+            touched={touched.matKhau}
+            error={errors.matKhau}
           />
           {/* phone  */}
           <InputCustom
             onChange={handleChange}
-            value={values.phone}
+            value={values.soDT}
             contentLabel="Số điện thoại"
-            name={"phone"}
+            name={"soDT"}
             placeHolder="Vui lòng nhập SDT"
             classWrapper="w-1/3 p-3"
             onBlur={handleBlur}
-            touched={touched.phone}
-            error={errors.phone}
+            touched={touched.soDT}
+            error={errors.soDT}
           />
 
           <InputCustom
@@ -159,17 +156,7 @@ const FormRegister = () => {
             touched={touched.taiKhoan}
             error={errors.taiKhoan}
           />
-          <InputCustom
-            onChange={handleChange}
-            value={values.maNhom}
-            contentLabel="Ma Nhom"
-            name={"maNhom"}
-            placeHolder="Vui lòng nhập ma Nhom"
-            classWrapper="w-1/3 p-3"
-            onBlur={handleBlur}
-            touched={touched.maNhom}
-            error={errors.maNhom}
-          />
+       
           
          
           <div className="w-full p-3">

@@ -9,6 +9,14 @@ const ProductList = () => {
   const dispatch = useDispatch();
   const { listCourses, status, error } = useSelector((state) => state.courseSlice);
 
+  const   getRandomImages = (idx) => {
+
+    for (let i = 1; i <= listCourses.length; i++) {
+        const randomId = Math.floor(Math.random() * listCourses.length) + 1; 
+        return `https://picsum.photos/id/${randomId}/300/200`; 
+    }
+  }
+
   useEffect(() => {
     dispatch(getAllCourseApi());
   }, [dispatch]);
@@ -34,9 +42,9 @@ const ProductList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">Danh sách khóa học</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center text-[#4682b4]">Danh sách khóa học</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {listCourses.map(({ maKhoaHoc, hinhAnh, tenKhoaHoc, nguoiTao, luotXem }) => (
+        {listCourses.map(({ maKhoaHoc, hinhAnh, tenKhoaHoc, nguoiTao, luotXem },index) => (
           <Link key={maKhoaHoc} to={`/course/${maKhoaHoc}`}>
             <Card
               hoverable

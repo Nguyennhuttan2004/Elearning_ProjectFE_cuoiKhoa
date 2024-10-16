@@ -1,0 +1,64 @@
+/* src/components/FormSearchProduct/FormSearchProduct.css */
+.search-container {
+    width: 100%;
+    max-width: 600px; /* Giới hạn chiều rộng */
+    margin: 0 auto; /* Căn giữa */
+  }
+  
+  .search-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  
+  .search-input-container:hover {
+    border-color: #007bff; /* Màu khi hover */
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .job-suggestion {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .job-suggestion:hover {
+    background-color: #f0f0f0; /* Màu nền khi hover */
+  }
+  
+  .job-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .job-details h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .job-details p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+  }

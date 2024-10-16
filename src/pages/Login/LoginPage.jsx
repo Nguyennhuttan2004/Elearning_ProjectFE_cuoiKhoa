@@ -29,7 +29,7 @@ const LoginPage = () => {
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
-      password: "",
+      matKhau: "",
     },
     onSubmit: async (values) => {
       try {
@@ -49,7 +49,7 @@ const LoginPage = () => {
         .string()
         .required(notiValidation.empty)
         .matches(/^[a-zA-Z0-9_]{5,15}$/, "Tài khoản phải có 5-15 ký tự, chỉ bao gồm chữ cái, số và dấu gạch dưới"),
-      password: yup
+      matKhau: yup
         .string()
         .required("Vui lòng không bỏ trống")
         .min(6, "Mật khẩu phải có ít nhất 6 ký tự")
@@ -73,7 +73,7 @@ const LoginPage = () => {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Tài khoản"
-              name="taiKhoan"
+              name={"taiKhoan"}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.taiKhoan}
@@ -86,10 +86,10 @@ const LoginPage = () => {
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               placeholder="Mật khẩu"
-              name="password"
+              name={"matKhau"}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.password}
+              value={formik.values.matKhau}
             />
           </Form.Item>
           <div className="flex items-center justify-between">

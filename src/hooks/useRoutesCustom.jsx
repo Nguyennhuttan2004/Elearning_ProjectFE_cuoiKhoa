@@ -10,7 +10,8 @@ import AdminLogin from "../pages/AdminLogin/AdminLogin";
 // import ManagerUser from "../pages/ManagerUser/ManagerUser";
 import CreateUser from "../pages/CreateUser/CreateUser";
 import { Skeleton } from "antd";
-
+import CourseDetailTemplate from "../templates/CourseDetailTemplates/CourseDetailTemplate";
+import CourseDetail from "../pages/CourseDetail/CourseDetail";
 const ManagerUser = React.lazy(() => import("../pages/ManagerUser/ManagerUser"))
 
 const useRoutesCustom = () => {
@@ -55,8 +56,19 @@ const useRoutesCustom = () => {
     }, {
       path: '/admin-login',
       element: <AdminLogin />
+    },
+    {
+      path: '/course/:id',
+      element: <CourseDetailTemplate />,
+      children: [
+        {
+          index: true, 
+          element: <CourseDetail />
+        }
+      ]
     }
   ]);
+  // Ben nay da goi chay 1 lan roi
   return routes;
 };
 
