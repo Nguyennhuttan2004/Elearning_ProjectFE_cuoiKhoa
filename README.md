@@ -1,4 +1,4 @@
-Đây là dự án Fiverr React sử dụng vite. Phiên bản node là v20.11.0
+Đây là dự án React sử dụng vite. Phiên bản node là v20.11.0
 
 - Một số thư viện cài đặt bên trong dự án:
   - Thư viện axios (done)
