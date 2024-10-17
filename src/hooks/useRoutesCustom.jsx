@@ -12,6 +12,7 @@ import CreateUser from "../pages/CreateUser/CreateUser";
 import { Skeleton } from "antd";
 import CourseDetailTemplate from "../templates/CourseDetailTemplates/CourseDetailTemplate";
 import CourseDetail from "../pages/CourseDetail/CourseDetail";
+import UserInfo from "../pages/UserInfo/UserInfo"; 
 const ManagerUser = React.lazy(() => import("../pages/ManagerUser/ManagerUser"))
 
 const useRoutesCustom = () => {
@@ -66,9 +67,14 @@ const useRoutesCustom = () => {
           element: <CourseDetail />
         }
       ]
-    }
+    },
+    {
+      path: "/user-info", 
+      element: <UserInfo />,
+    },
+
+  
   ]);
-  // Ben nay da goi chay 1 lan roi
   return routes;
 };
 

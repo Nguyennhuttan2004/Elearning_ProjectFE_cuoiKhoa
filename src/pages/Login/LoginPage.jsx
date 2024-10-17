@@ -8,12 +8,15 @@ import { Input, Button, Form, Typography, Divider } from "antd";
 import { UserOutlined, LockOutlined, GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import signInAnimation from "./../../assets/animation/signInAnimation.json";
 import { authService } from './../../services/auth.service';
-import { setLocalStorage } from "../../utils/utils";
 import { setValueUser } from "../../redux/authSlice";
 import { NotificationContext } from "../../App";
 import { notiValidation } from "../../common/notiValidation";
 
 const { Title, Text } = Typography;
+
+const setLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -37,11 +40,12 @@ const LoginPage = () => {
         setLocalStorage("user", result.data.content);
         dispatch(setValueUser(result.data.content));
         handleNotification("Đăng nhập thành công, bạn sẽ được chuyển hướng về trang chủ", "success");
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
+        
+        // Chuyển hướng ngay lập tức
+        navigate("/");
       } catch (error) {
-        handleNotification(error.response.data.content, "error");
+        // Hiển thị thông báo lỗi nếu thông tin đăng nhập không đúng
+        handleNotification("Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.", "error");
       }
     },
     validationSchema: yup.object({
@@ -80,8 +84,8 @@ const LoginPage = () => {
             />
           </Form.Item>
           <Form.Item
-            validateStatus={formik.errors.password && formik.touched.password ? "error" : ""}
-            help={formik.touched.password && formik.errors.password}
+            validateStatus={formik.errors.matKhau && formik.touched.matKhau ? "error" : ""}
+            help={formik.touched.matKhau && formik.errors.matKhau}
           >
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
@@ -92,8 +96,6 @@ const LoginPage = () => {
               value={formik.values.matKhau}
             />
           </Form.Item>
-          <div className="flex items-center justify-between">
-          </div>
           <Button type="primary" htmlType="submit" className="w-full" size="large">
             Đăng nhập
           </Button>

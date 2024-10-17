@@ -10,16 +10,35 @@ export const getAllDanhMucApi = createAsyncThunk(
   }
 );
 
+
+export const getCoursesByCategoryApi = createAsyncThunk(
+  "courses/getCoursesByCategory",
+  async (category) => {
+    const result = await danhMucService.getCoursesByCategory(category);
+    console.log("Kết quả từ API:", result); // Log kết quả
+    return result; 
+  }
+);
+
 const initialState = {
   listDanhMuc: [],
+  categoriesName: ""
 };
 
 const danhMucSlice = createSlice({
   name: "danhMuc",
   initialState,
-  reducers: {},
+  reducers: {
+     setCategories: (state, action) =>{
+      state.categoriesName = action.payload 
+     }
+  },
   extraReducers: (builder) => {
     builder.addCase(getAllDanhMucApi.fulfilled, (state, action) => {
+      console.log(action);
+      state.listDanhMuc = action.payload;
+    });
+    builder.addCase(getCoursesByCategoryApi.fulfilled, (state, action) => {
       console.log(action);
       state.listDanhMuc = action.payload;
     });

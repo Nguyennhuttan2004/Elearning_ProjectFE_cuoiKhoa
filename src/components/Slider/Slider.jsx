@@ -5,25 +5,25 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     id: 1,
-    title: "Summer Sale Collections",
-    description: "Sale! Up to 50% off!",
-    img: "https://images.pexels.com/photos/27601314/pexels-photo-27601314/free-photo-of-cafein-m-c-m-c-kinh-bong-ram.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Lập trình BackEnd",
+    description: "Sale! Up to 50% off",
+    img: "https://i.pinimg.com/originals/75/90/f8/7590f891af94580b4e7b76e6fdffbd01.gif",
     url: "/",
     bg: "bg-gradient-to-r from-yellow-50 to-pink-50",
   },
   {
     id: 2,
-    title: "Winter Sale Collections",
+    title: "Lập trình FrontEnd",
     description: "Sale! Up to 50% off!",
-    img: "https://images.pexels.com/photos/7282876/pexels-photo-7282876.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://i.pinimg.com/originals/8a/f9/a6/8af9a6cb24dcf4b9fb647c6f1e5b815c.gif",
     url: "/",
     bg: "bg-gradient-to-r from-pink-50 to-blue-50",
   },
   {
     id: 3,
-    title: "Spring Sale Collections",
+    title: "Lập trình Di Động",
     description: "Sale! Up to 50% off!",
-    img: "https://images.pexels.com/photos/8365699/pexels-photo-8365699.jpeg?auto=compress&cs=tinysrgb&w=600",
+    img: "https://i.pinimg.com/originals/25/8f/e4/258fe493ca8b097f772afa4c26434d52.gif",
     url: "/",
     bg: "bg-gradient-to-r from-blue-50 to-yellow-50",
   },
@@ -66,13 +66,13 @@ const Slider = () => {
               </Link>
             </div>
             {/* img container */}
-            <div className="h-1/2 xl:w-1/2 xl:h-full relative   ">
+            <div className="h-1/2 xl:w-1/2 xl:h-full relative flex items-center justify-center     ">
               <Image
                 src={slide.img}
                 alt=""
-                fill
                 sizes="100%"
                 className="object-cover "
+                fill = {true}
               />
             </div>
           </div>

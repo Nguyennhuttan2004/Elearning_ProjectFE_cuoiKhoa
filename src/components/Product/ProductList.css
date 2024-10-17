@@ -1,0 +1,43 @@
+/* src/components/Product/ProductList.css */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .ant-pagination {
+    display: flex;
+    align-items: center;
+  }
+  
+  .pagination-button {
+    background-color: #4682b4;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 0 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    background-color: #5a9bd4;
+  }
+  
+  .ant-pagination-item {
+    margin: 0 4px;
+  }
+  
+  .ant-pagination-item-active {
+    background-color: #4682b4;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .ant-pagination-item a {
+    color: inherit;
+  }
+  
+  .ant-pagination-item:hover {
+    background-color: #e6f7ff;
+  }

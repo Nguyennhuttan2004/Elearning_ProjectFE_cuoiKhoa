@@ -7,7 +7,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
-import { getLocalStorage } from './../../utils/utils.js'
 import { useDispatch } from 'react-redux';
 import { getValueUserApi } from '../../redux/nguoiDungSlice.js';
 import { Link, Outlet } from 'react-router-dom';

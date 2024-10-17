@@ -1,12 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { DownOutlined, UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import React, { useState } from "react"; 
+import axios from "axios"; 
+import { Link, useNavigate } from "react-router-dom"; // Thêm useNavigate
+import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import { Dropdown, Space, Button, Avatar } from "antd";
 import "./header.scss";
 import LinkCustom from "../LinkCustom/LinkCustom";
 import FormSearchProduct from "../FormSearchProduct/FormSearchProduct";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const navigate = useNavigate(); 
+
+  const handleSearch = async () => {
+    const maKhoaHoc = searchTerm; 
+    if (!maKhoaHoc) {
+      console.error("Mã khóa học không được định nghĩa.");
+      return; 
+    }
+
+    navigate(`/list-job?tenKhoaHoc=${tenKhoaHoc}`);
+  };
+
   const categories = [
     { key: "1", label: "Phát triển web" },
     { key: "2", label: "Thiết kế đồ họa" },
@@ -19,7 +33,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <Link to="/" className="text-2xl font-bold text-[#4682b4]">
+            <Link to="/" className="text-4xl font-bold text-[#4682b4]">
               ELearning
             </Link>
             <Dropdown
@@ -33,12 +47,13 @@ const Header = () => {
                 </Space>
               </Button>
             </Dropdown>
-            <FormSearchProduct />
+            <FormSearchProduct 
+              searchTerm={searchTerm} 
+              setSearchTerm={setSearchTerm} 
+              onSearch={handleSearch} 
+            />
           </div>
           <nav className="flex items-center space-x-6">
-            <Link to="/cart" className="text-gray-600 hover:text-blue-600">
-              <ShoppingCartOutlined style={{ fontSize: '24px' }} />
-            </Link>
             <LinkCustom
               content="Đăng nhập"
               to="/login"
